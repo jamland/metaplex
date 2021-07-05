@@ -23,7 +23,10 @@ const { WalletProvider } = contexts.Wallet;
 const { ConnectionProvider } = contexts.Connection;
 const { AccountsProvider } = contexts.Accounts;
 
+console.log('version 1.0');
+
 export function Routes() {
+
   return (
     <>
       <HashRouter basename={'/'}>
