@@ -38,6 +38,14 @@ body {
   flex-direction: column;
 }
 
+::selection {
+  color: black;
+  background: #e3c100;
+  // fix for gradient text
+  -webkit-background-clip: none;
+  -webkit-text-fill-color: white;
+}
+
 .no-events {
   pointer-events: none;
 }
