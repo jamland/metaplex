@@ -16,6 +16,7 @@ export enum ArtworkViewState {
   Metaplex = '0',
   Owned = '1',
   Created = '2',
+  MyAuctions = '3',
 }
 
 export const ArtworksView = () => {
@@ -98,6 +99,14 @@ export const ArtworksView = () => {
                 <TabPane
                   tab={<span className="tab-title">Created</span>}
                   key={ArtworkViewState.Created}
+                >
+                  {artworkGrid}
+                </TabPane>
+              )}
+              {connected && (
+                <TabPane
+                  tab={<span className="tab-title">My Auctions</span>}
+                  key={ArtworkViewState.MyAuctions}
                 >
                   {artworkGrid}
                 </TabPane>

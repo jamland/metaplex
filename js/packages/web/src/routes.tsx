@@ -13,6 +13,8 @@ import {
   AuctionView,
   HomeView,
   ArtworksView,
+  LandingView,
+  AboutView,
 } from './views';
 import { UseWalletProvider } from 'use-wallet';
 import { CoingeckoProvider } from './contexts/coingecko';
@@ -86,7 +88,9 @@ export function Routes() {
                             path="/auction/:id/billing"
                             component={() => <BillingView />}
                           />
-                          <Route path="/" component={() => <HomeView />} />
+                          <Route path="/auctions" component={() => <HomeView />} />
+                          <Route path="/" component={() => <LandingView />} />
+                          <Route path="/about" component={() => <AboutView />} />
                         </Switch>
                       </AppLayout>
                     </ConfettiProvider>

@@ -1,10 +1,16 @@
 import React from 'react';
 import * as THREE from 'three';
+<<<<<<< HEAD
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+=======
+import * as dat from 'dat.gui';
+>>>>>>> e947825 (Add landing page)
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TouchableOrbitControls } from './utils';
 
 // const OrbitControls = oc(THREE);
+
+const gui = new dat.GUI();
 
 type MeshViewerProps = {
   className?: string;
@@ -13,6 +19,7 @@ type MeshViewerProps = {
   style?: React.CSSProperties;
   forcePhongMaterialForVertexColors?: boolean;
   onError?: () => void;
+  withGui?: boolean;
 };
 
 const phongifyVertexColors = (gltfScene: any) => {
@@ -56,12 +63,15 @@ export class MeshViewer extends React.Component<MeshViewerProps, {}> {
       return;
     }
     // === THREE.JS CODE START ===
-    this.renderer = new THREE.WebGLRenderer({ antialias: true  });
+    this.renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true
+    });
 
     const width = this.threeMountRef.current.clientWidth;
     const height = this.threeMountRef.current.clientHeight;
     this.renderer.setSize(width, height, false);
-    this.renderer.setClearColor(0);
+    this.renderer.setClearColor(0xffffff, 0);
     this.threeMountRef.current.appendChild(this.renderer.domElement);
     const self = this;
     this.windowResizeListener = () => self.handleWindowResize();
@@ -72,7 +82,7 @@ export class MeshViewer extends React.Component<MeshViewerProps, {}> {
     this.camera = new THREE.OrthographicCamera(
       width / -20,
       width / 20,
-      height / 20,
+      height / 50,
       height / -20,
       0.1,
       10000,
@@ -86,13 +96,31 @@ export class MeshViewer extends React.Component<MeshViewerProps, {}> {
     this.controls.enablePan = false;
     this.controls.autorotate = true;
 
-    let dirLight = new THREE.DirectionalLight(0xffffff, 0.4);
-    dirLight.position.set(-20, 0, 50);
+    // let dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    // dirLight.position.set(0, 30, 50);
+    // scene.add(dirLight);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    dirLight.position.set(-2, 6, 5);
     scene.add(dirLight);
 
-    dirLight = new THREE.DirectionalLight(0xffffff, 0.4);
-    dirLight.position.set(-20, 0, -50);
-    scene.add(dirLight);
+    if (this.props.withGui) {
+      const light1 = gui.addFolder('Dir Light');
+
+      light1.add(dirLight.position, 'x').min(-10).max(10).step(0.1);
+      light1.add(dirLight.position, 'y').min(-10).max(10).step(0.1);
+      light1.add(dirLight.position, 'z').min(-10).max(10).step(0.1);
+      light1.add(dirLight, 'intensity').min(0).max(10).step(0.1);
+
+      const dirLightHelper = new THREE.DirectionalLightHelper(dirLight, 1)
+      scene.add(dirLightHelper)
+    }
+
+
+    const pointLight = new THREE.PointLight(0x460063, 2);
+    pointLight.position.set(1, 1, 1);
+    pointLight.intensity = 1;
+    scene.add(pointLight);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientLight);
