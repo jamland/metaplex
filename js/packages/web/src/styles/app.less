@@ -6,27 +6,29 @@ html {
   width: 100vw;
   overflow-x: hidden;
 }
-#root {
+
+#__next {
   height: 100%;
-  font-family: 'Graphik Web', sans-serif;
+  position: relative;
 }
 
-#root::before {
+#__next::before {
+  display: block;
   content: '';
   position: absolute;
+  z-index: 1;
   top: 0;
   left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  filter: grayscale(100%);
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 10px;
+  width: 100%;
+  margin: 0;
+  background: linear-gradient(90deg, #7200a0, #00b8ff);
 }
 
 body {
-  --row-highlight: @background-color-base;
+  // --row-highlight: @background-color-base;
   margin: 0;
-  background: linear-gradient(90deg, #7200a0, #00b8ff);;
+  background: linear-gradient(90deg, #7200a0, #00b8ff);
 
   font-style: normal;
   font-weight: normal;
