@@ -1,10 +1,7 @@
 import React from 'react';
 import * as THREE from 'three';
-<<<<<<< HEAD
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-=======
 import * as dat from 'dat.gui';
->>>>>>> e947825 (Add landing page)
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TouchableOrbitControls } from './utils';
 
