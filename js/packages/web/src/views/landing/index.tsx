@@ -5,8 +5,6 @@ import { InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
 
 import { MeshViewer } from '../../components/MeshViewer';
 
-import './index.less';
-
 const { TabPane } = Tabs;
 
 const { Content, Footer } = Layout;

@@ -30,8 +30,8 @@ export default class MetaplexDocument extends Document {
           <link
             rel="icon"
             type="image/png"
-            sizes="96x96"
-            href="/favicon-96x96.png"
+            sizes="192x192"
+            href="/favicon-192x192.png"
           />
           <link
             rel="icon"
@@ -40,7 +40,7 @@ export default class MetaplexDocument extends Document {
             href="/favicon-16x16.png"
           />
           <meta name="theme-color" content="#000000" />
-          <meta name="description" content="Metaplex NFT Marketplace" />
+          <meta name="description" content="Ukratrax NFT Store" />
           <link rel="manifest" href="/manifest.json" />
           <link
             rel="stylesheet"
@@ -48,6 +48,37 @@ export default class MetaplexDocument extends Document {
             integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
             crossOrigin="anonymous"
           />
+
+          {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-2KF22XSB5Z"
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-2KF22XSB5Z');
+            `,
+            }}
+          />
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:2432045,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+          `,
+            }}
+          />
+          {/* End Analytics */}
         </Head>
         <body>
           <Main />
