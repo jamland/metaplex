@@ -58,7 +58,7 @@ export const LandingView = () => {
             <Col xs={24} md={16}>
               <p style={{ textAlign: 'left' }}>
                 Уникальные лимитированные айтемы, которые будут у вас до тех пор
-                пока существует интернет или вы не решите от них избавится.
+                по существует интернет или вы не решите от них избавится.
               </p>
             </Col>
           </Row>
@@ -67,11 +67,6 @@ export const LandingView = () => {
 
           <Row className="with-radial-bg">
             <Col xs={24} md={14} style={{ display: 'flex' }}>
-              {/* <MeshViewer
-                url={rapperModel}
-                className="artwork-image"
-                style={{ width: '100%' }}
-              /> */}
               <img src={personImage} className="middle-section-image-02" />
               <img src={rapperImage} className="middle-section-image" />
             </Col>

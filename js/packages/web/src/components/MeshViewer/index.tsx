@@ -6,8 +6,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TouchableOrbitControls } from './utils';
 
 // const OrbitControls = oc(THREE);
-
-const gui = new dat.GUI();
+const devMode = process.env.NEXT_PUBLIC_DEV === 'true';
+const gui = devMode ? new dat.GUI() : undefined;
 
 type MeshViewerProps = {
   className?: string;
@@ -101,7 +101,7 @@ export class MeshViewer extends React.Component<MeshViewerProps, {}> {
     dirLight.position.set(-2, 6, 5);
     scene.add(dirLight);
 
-    if (this.props.withGui) {
+    if (devMode && gui && this.props.withGui) {
       const light1 = gui.addFolder('Dir Light');
 
       light1.add(dirLight.position, 'x').min(-10).max(10).step(0.1);
