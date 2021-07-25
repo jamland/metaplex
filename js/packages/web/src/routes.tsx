@@ -88,9 +88,14 @@ export function Routes() {
                             path="/auction/:id/billing"
                             component={() => <BillingView />}
                           />
+                          <Route
+                            exact
+                            path="/about"
+                            component={() => <AboutView />}
+                          />
+
                           <Route path="/auctions" component={() => <HomeView />} />
                           <Route path="/" component={() => <LandingView />} />
-                          <Route path="/about" component={() => <AboutView />} />
                         </Switch>
                       </AppLayout>
                     </ConfettiProvider>

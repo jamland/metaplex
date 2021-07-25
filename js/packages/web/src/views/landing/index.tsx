@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Row, Col, Tabs, Button, Divider } from 'antd';
-import { InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
+import {ErrorBoundary} from 'react-error-boundary';
+import { Layout, Row, Col, Button, Divider } from 'antd';
 
 import { MeshViewer } from '../../components/MeshViewer';
+import { Footer } from '../../components/Footer';
 
-const { TabPane } = Tabs;
-
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const heroImageCenter = '/landing/tee.glb';
 const heroImageLeft = '/landing/trucker.png';
-const heroImageRight = '/landing/trucker.png';
-const rapperModel = '/landing/rapper.glb';
 const rapperImage = '/landing/rapper.png';
 const personImage = '/landing/person.png';
 
@@ -21,32 +18,48 @@ export const LandingView = () => {
       <Layout>
         <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
           <Row className="hero-section">
-            <Col span={8}>
+            <Col xs={24} md={8} style={{ textAlign: 'center' }}>
               <img src={heroImageLeft} alt="" />
               <br />
               <br />
               <br />
-              <p>Покупайте и продавайте NFT айтемы на аукционе за криптовалюту.</p>
-              <Button>Auction</Button>
-            </Col>
-            <Col span={8}>
-              <MeshViewer
-                url={heroImageCenter}
-                className="artwork-image"
-                style={{ width: '100%' }}
-                withGui={true}
-              />
-            </Col>
-            <Col span={8}>
-              <img src={heroImageRight} />
-              <br />
-              <br />
-              <br />
+              <h3>Твои виртуальные NFT вещи</h3>
               <p>
-                Ваш виртуальный мерч. Уникальные лимитированные айтемы, которые
-                будут у вас до тех пор пака существует интернет или вы не решите от него избавится.
+                Покупайте и продавайте NFT айтемы на аукционе за криптовалюту.
               </p>
-              <Button>Детали Проекта</Button>
+              <Link to="/auctions">
+                <Button type="primary" style={{marginBottom: '1em'}}>
+                  Аукцион
+                </Button>{' '}
+              </Link>
+              <Link to="/about">
+                <Button>Детали Проекта</Button>
+              </Link>
+            </Col>
+
+            <Col xs={24} md={16} className="hero-mesh">
+              <ErrorBoundary
+                FallbackComponent={ErrorFallback}
+                onReset={() => {
+                  // reset the state of your app so the error doesn't happen again
+                }}
+              >
+                <MeshViewer
+                  url={heroImageCenter}
+                  className="artwork-image"
+                  style={{ width: '100%' }}
+                  withGui={true}
+                />
+              </ErrorBoundary>
+            </Col>
+          </Row>
+
+          <Row className="description-section">
+            <Col xs={24} md={16}>
+              <p style={{ textAlign: 'left' }}>
+                Уникальные лимитированные айтемы, которые будут у вас до тех пор
+                пака существует интернет или вы не решите от них избавится.
+              </p>
             </Col>
           </Row>
 
@@ -62,7 +75,7 @@ export const LandingView = () => {
               <img src={personImage} className="middle-section-image-02" />
               <img src={rapperImage} className="middle-section-image" />
             </Col>
-            <Col xs={24} md={10}>
+            <Col xs={23} md={10} className="more-info-section">
               <h1 className="section-title">
                 💎 <span className="gradient-blue-purple">NFT MERCH</span>
               </h1>
@@ -74,10 +87,18 @@ export const LandingView = () => {
                 айтемы создаются в лимитированном количестве и хранятся на вашем
                 кошельке (в блокчейне Solana).
               </p>
-              <p>Подписывайтесь в Инсте чтобы узнать о будущих эйр дропах.</p>
+              <p>
+                Подписывайтесь в Инсте и ТикТоке, чтобы узнать о будущих
+                эйр-дропах.
+              </p>
 
               <br />
-              <Button type="primary" size="large"> Смотрите Коллекции →</Button>
+              <Link to="/artists">
+                <Button type="primary" size="large">
+                  {' '}
+                  Смотрите Коллекции →
+                </Button>
+              </Link>
               <br />
               <br />
               <br />
@@ -87,28 +108,23 @@ export const LandingView = () => {
           <Divider style={{ marginTop: 0 }} />
         </Content>
       </Layout>
-      <Footer className="footer">
-        <div className="footer-links">
-          <span className="footer-title">UTX STORE</span>
-          <span className="footer-copy">© 2021</span>
-          <span>
-            <Link to={`/about`}>
-              <span className="footer-copy">About</span>
-            </Link>
-          </span>
-          <span>
-            <a href="https://www.instagram.com/ukratrax/" target="_blank">
-              <InstagramOutlined style={{ fontSize: '150%' }} />
-            </a>
-          </span>
-          {/* <span>
-            <a href="https://www.instagram.com/ukratrax/" target="_blank">
-              <TwitterOutlined style={{ fontSize: '150%'}} />
-            </a>
-          </span> */}
-          <span></span>
-        </div>
-      </Footer>
+      <Footer />
     </Layout>
   );
 };
+
+interface ErrorProps {
+  error: Error,
+  resetErrorBoundary: () => void
+}
+
+function ErrorFallback({error, resetErrorBoundary}: ErrorProps) {
+  return (
+    <div role="alert">
+      <p>Something went wrong:</p>
+      <small>{error.message}</small>
+      <br />
+      <Button onClick={resetErrorBoundary}>Try again</Button>
+    </div>
+  )
+}
