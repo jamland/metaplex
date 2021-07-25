@@ -1,90 +1,59 @@
 import React from 'react';
-import { Layout, Row, Col, Tabs, Button, Divider } from 'antd';
-import { InstagramOutlined } from '@ant-design/icons';
+import { Layout, Row, Col, Divider } from 'antd';
+import { Footer } from '../../components/Footer';
 
-import { MeshViewer } from '../../components/MeshViewer';
-
-const { TabPane } = Tabs;
-
-const { Content, Footer } = Layout;
-const heroImageCenter = '/landing/tee.glb';
-const heroImageLeft = '/landing/trucker.png';
-const heroImageRight = '/landing/trucker.png';
-const rapperModel = '/landing/rapper.glb';
-const rapperImage = '/landing/rapper.png';
-const personImage = '/landing/person.png';
+const { Content } = Layout;
 
 export const AboutView = () => {
   return (
-    <Layout className="landing-screen">
+    <Layout className="about-screen">
       <Layout>
         <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
           <Row>
-            <Col span={8}>
-              <div>
-                <img src={heroImageLeft} alt="" />
-              </div>
-              <p>All active items you can find on auction</p>
-              <Button>Auction</Button>
+            <Col span={18}>
+              <h1 style={{ fontSize: '2em', lineHeight: '1em' }}>
+                <span style={{ fontSize: '2em', lineHeight: '2em' }}>
+                  👕 🧢 😵‍💫 👾
+                </span>{' '}
+                <br />
+                <span>Твои виртуальные вещи от музыкантов и артистов</span>
+              </h1>
             </Col>
-            <Col span={8}>
-              <MeshViewer
-                url={heroImageCenter}
-                className="artwork-image"
-                style={{ width: '100%' }}
-                withGui={true}
-              />
-            </Col>
-            <Col span={8}>
-              <img src={heroImageRight} />
-              <Button>All Existing Items</Button>
+            <Col span={16}>
               <br />
-              <Button>About Project</Button>
+              <br />
+              <h2>🪂 Free Airdrops</h2>
+
+              <p>
+                👉 Подписывайтесь в{' '}
+                <a href="https://www.instagram.com/ukratrax" target="_blank">
+                  Insta
+                </a>
+                ,{' '}
+                <a href="https://twitter.com/ukratrax" target="_blank">
+                  Twitter
+                </a>
+                ,{' '}
+                <a href="https://www.tiktok.com/@ukratrax" target="_blank">
+                  TikTok
+                </a>
+                , чтоб узнать условия участия и новости о новых айтемах.
+              </p>
+              <p>
+                Ukratrax - это аукцион NFT мерч айтемов от музыкантов и
+                артистов. Артисты создают виртуальные вещи в лимитированной
+                коллекции. Получай эти айтемы эирдропами, покупай-продавай,
+                обменивай на платформе Ukratrax Store. 🎉 Первый пак с 20 💎
+                бесплатными вещами уже в течении месяца!
+              </p>
             </Col>
           </Row>
 
           <Divider />
-
-          <Row className="with-radial-bg">
-            <Col xs={24} md={14} style={{display: 'flex'}}>
-              {/* <MeshViewer
-                url={rapperModel}
-                className="artwork-image"
-                style={{ width: '100%' }}
-              /> */}
-              <img src={personImage} className="middle-section-image-02" />
-              <img src={rapperImage} className="middle-section-image" />
-            </Col>
-            <Col xs={24} md={10}>
-              <h1 className="section-title">
-                💎 <span className="gradient-blue-purple">NFT MERCH</span>
-              </h1>
-              <h3 className="section-subtitle">by UKRATRAX</h3>
-              <p>
-                Ukratrax presents space where people can find merch made by they
-                favarable artists and musicians. Colect, sell and buy NFT items
-                on auction, exchange it with other people. Read about technical
-                apects
-              </p>
-              <Button> Explore Collections →</Button>
-            </Col>
-          </Row>
-
-          <Divider style={{marginTop: 0}} />
         </Content>
       </Layout>
-      <Footer>
-        <div className="footer-links">
-          <span className="footer-title">UTX STORE</span>
-          <span className="footer-copy">© 2021</span>
-          <span>About</span>
-          <span>
-              <InstagramOutlined />
-          </span>
-          <span>Twitter</span>
-          <span>Soundcloud</span>
-        </div>
-      </Footer>
+
+      <Footer />
     </Layout>
   );
 };
