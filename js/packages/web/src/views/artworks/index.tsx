@@ -35,8 +35,8 @@ export const ArtworksView = () => {
   const items =
     (activeKey === ArtworkViewState.Owned
       ? ownedMetadata.map(m => m.metadata)
-      : (activeKey === ArtworkViewState.Created 
-        ? createdMetadata 
+      : (activeKey === ArtworkViewState.Created
+        ? createdMetadata
         : metadata));
 
   useEffect(() => {
@@ -46,6 +46,8 @@ export const ArtworksView = () => {
       setActiveKey(ArtworkViewState.Metaplex);
     }
   }, [connected, setActiveKey]);
+
+  console.log('items', items);
 
   const artworkGrid = (
     <Masonry

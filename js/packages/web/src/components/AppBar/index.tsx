@@ -75,19 +75,24 @@ const MetaplexMenu = () => {
       placement="bottomLeft"
       trigger={['click']}
       overlay={<Menu>
-        <Menu.Item>
+        <Menu.Item key="auctions">
           <Link to={`/auctions`}>
             <Button className="app-btn">Explore</Button>
           </Link>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="artworks">
           <Link to={`/artworks`}>
             <Button className="app-btn">{connected ? "My Items" : "Artworks"}</Button>
           </Link>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="artists">
           <Link to={`/artists`}>
             <Button className="app-btn">Creators</Button>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="home">
+          <Link to={`/`}>
+            <Button className="app-btn">Info</Button>
           </Link>
         </Menu.Item>
       </Menu>}
