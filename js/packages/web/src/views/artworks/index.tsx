@@ -47,6 +47,8 @@ export const ArtworksView = () => {
     }
   }, [connected, setActiveKey]);
 
+  console.log('items', items);
+
   const artworkGrid = (
     <Masonry
       breakpointCols={breakpointColumnsObj}
