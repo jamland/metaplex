@@ -5,6 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document';
+import { MetaTitles } from '../components/MetaTitles'
 
 export default class MetaplexDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -41,6 +42,9 @@ export default class MetaplexDocument extends Document {
           />
           <meta name="theme-color" content="#000000" />
           <meta name="description" content="Ukratrax NFT Store" />
+
+          <MetaTitles />
+
           <link rel="manifest" href="/manifest.json" />
           <link
             rel="stylesheet"
