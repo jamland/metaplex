@@ -97,8 +97,9 @@ export class MeshViewer extends React.Component<MeshViewerProps, {}> {
     // dirLight.position.set(0, 30, 50);
     // scene.add(dirLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    dirLight.position.set(-2, 6, 5);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+    dirLight.position.set(2.2, 6, 4.4);
+    dirLight.intensity = 1;
     scene.add(dirLight);
 
     if (devMode && gui && this.props.withGui) {
@@ -114,12 +115,12 @@ export class MeshViewer extends React.Component<MeshViewerProps, {}> {
     }
 
 
-    const pointLight = new THREE.PointLight(0x460063, 2);
+    const pointLight = new THREE.PointLight(0x460063, 0);
     pointLight.position.set(1, 1, 1);
     pointLight.intensity = 1;
     scene.add(pointLight);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
 
     this.resetCamera();
