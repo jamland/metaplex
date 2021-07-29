@@ -43,11 +43,13 @@ const UserActions = () => {
 const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
   const { connected } = useWallet();
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: vertical ? "column" : "row",
-    }}>
-      <Link to={`/auctions`}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: vertical ? 'column' : 'row',
+      }}
+    >
+      <Link to={`/`}>
         <Button className="app-btn">Explore</Button>
       </Link>
       <Link to={`/artworks`}>
@@ -58,9 +60,6 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
       <Link to={`/artists`}>
         <Button className="app-btn">Creators</Button>
       </Link>
-      <Link to={`/`}>
-        <Button className="app-btn">Info</Button>
-      </Link>
     </div>
   );
 };
@@ -69,37 +68,39 @@ const MetaplexMenu = () => {
   const { width } = useWindowDimensions();
   const { connected } = useWallet();
 
-  if (width < 768) return <>
-    <Dropdown
-      arrow
-      placement="bottomLeft"
-      trigger={['click']}
-      overlay={<Menu>
-        <Menu.Item key="auctions">
-          <Link to={`/auctions`}>
-            <Button className="app-btn">Explore</Button>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="artworks">
-          <Link to={`/artworks`}>
-            <Button className="app-btn">{connected ? "My Items" : "Artworks"}</Button>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="artists">
-          <Link to={`/artists`}>
-            <Button className="app-btn">Creators</Button>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="home">
-          <Link to={`/`}>
-            <Button className="app-btn">Info</Button>
-          </Link>
-        </Menu.Item>
-      </Menu>}
-    >
-      <MenuOutlined style={{ fontSize: "1.4rem" }} />
-    </Dropdown>
-  </>
+  if (width < 768)
+    return (
+      <>
+        <Dropdown
+          arrow
+          placement="bottomLeft"
+          trigger={['click']}
+          overlay={
+            <Menu>
+              <Menu.Item>
+                <Link to={`/`}>
+                  <Button className="app-btn">Explore</Button>
+                </Link>
+              </Menu.Item>
+              <Menu.Item>
+                <Link to={`/artworks`}>
+                  <Button className="app-btn">
+                    {connected ? 'My Items' : 'Artworks'}
+                  </Button>
+                </Link>
+              </Menu.Item>
+              <Menu.Item>
+                <Link to={`/artists`}>
+                  <Button className="app-btn">Creators</Button>
+                </Link>
+              </Menu.Item>
+            </Menu>
+          }
+        >
+          <MenuOutlined style={{ fontSize: '1.4rem' }} />
+        </Dropdown>
+      </>
+    );
 
   return <DefaultActions />;
 };
