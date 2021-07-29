@@ -54,8 +54,9 @@ export const ArtCreateView = () => {
   const [step, setStep] = useState<number>(0);
   const [stepsVisible, setStepsVisible] = useState<boolean>(true);
   const [progress, setProgress] = useState<number>(0);
-  const [nft, setNft] =
-    useState<{ metadataAccount: PublicKey } | undefined>(undefined);
+  const [nft, setNft] = useState<{ metadataAccount: PublicKey } | undefined>(
+    undefined,
+  );
   const [files, setFiles] = useState<File[]>([]);
   const [attributes, setAttributes] = useState<IMetadataExtension>({
     name: '',
@@ -696,8 +697,9 @@ const RoyaltiesSplitter = (props: {
           };
 
           return (
-            <Col span={24} key={idx}>
+            <Col span={24}>
               <Row
+                key={idx}
                 align="middle"
                 gutter={[0, 16]}
                 style={{ margin: '5px auto' }}

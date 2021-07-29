@@ -51,16 +51,8 @@ export async function getAssetCostToStore(files: File[]) {
       expiry: Date.now() + 5 * 60 * 1000,
     };
 
-    if (conversionRates.value.solana) {
-      try {
-        localStorage.setItem(
-          'conversionRates',
-          JSON.stringify(conversionRates),
-        );
-      } catch {
-        // ignore
-      }
-    }
+    if (conversionRates.value.solana)
+      localStorage.setItem('conversionRates', JSON.stringify(conversionRates));
   }
 
   // To figure out how many lamports are required, multiply ar byte cost by this number

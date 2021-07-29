@@ -13,6 +13,8 @@ import {
   AuctionView,
   HomeView,
   ArtworksView,
+  LandingView,
+  AboutView,
 } from './views';
 import { UseWalletProvider } from 'use-wallet';
 import { CoingeckoProvider } from './contexts/coingecko';
@@ -23,7 +25,10 @@ const { WalletProvider } = contexts.Wallet;
 const { ConnectionProvider } = contexts.Connection;
 const { AccountsProvider } = contexts.Accounts;
 
+console.log('version 1.0');
+
 export function Routes() {
+
   return (
     <>
       <HashRouter basename={'/'}>
@@ -83,7 +88,14 @@ export function Routes() {
                             path="/auction/:id/billing"
                             component={() => <BillingView />}
                           />
-                          <Route path="/" component={() => <HomeView />} />
+                          <Route
+                            exact
+                            path="/about"
+                            component={() => <AboutView />}
+                          />
+
+                          <Route path="/auctions" component={() => <HomeView />} />
+                          <Route path="/" component={() => <LandingView />} />
                         </Switch>
                       </AppLayout>
                     </ConfettiProvider>

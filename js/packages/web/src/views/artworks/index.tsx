@@ -16,6 +16,7 @@ export enum ArtworkViewState {
   Metaplex = '0',
   Owned = '1',
   Created = '2',
+  MyAuctions = '3',
 }
 
 export const ArtworksView = () => {
@@ -34,8 +35,8 @@ export const ArtworksView = () => {
   const items =
     (activeKey === ArtworkViewState.Owned
       ? ownedMetadata.map(m => m.metadata)
-      : (activeKey === ArtworkViewState.Created 
-        ? createdMetadata 
+      : (activeKey === ArtworkViewState.Created
+        ? createdMetadata
         : metadata));
 
   useEffect(() => {
@@ -45,6 +46,8 @@ export const ArtworksView = () => {
       setActiveKey(ArtworkViewState.Metaplex);
     }
   }, [connected, setActiveKey]);
+
+  console.log('items', items);
 
   const artworkGrid = (
     <Masonry
@@ -98,6 +101,14 @@ export const ArtworksView = () => {
                 <TabPane
                   tab={<span className="tab-title">Created</span>}
                   key={ArtworkViewState.Created}
+                >
+                  {artworkGrid}
+                </TabPane>
+              )}
+              {connected && (
+                <TabPane
+                  tab={<span className="tab-title">My Auctions</span>}
+                  key={ArtworkViewState.MyAuctions}
                 >
                   {artworkGrid}
                 </TabPane>

@@ -82,7 +82,7 @@ export const ArtView = () => {
             style={{ textAlign: 'left', fontSize: '1.4rem' }}
           >
             <Row>
-              <div style={{ fontWeight: 700, fontSize: '4rem' }}>
+              <div style={{ fontWeight: 700, fontSize: '3rem' }}>
                 {art.title || <Skeleton paragraph={{ rows: 0 }} />}
               </div>
             </Row>
@@ -101,10 +101,9 @@ export const ArtView = () => {
               <Col>
                 <h6 style={{ marginTop: 5 }}>Created By</h6>
                 <div className="creators">
-                  {(art.creators || []).map((creator, idx) => {
+                  {(art.creators || []).map(creator => {
                     return (
                       <div
-                        key={idx}
                         style={{
                           display: 'flex',
                           alignItems: 'center',

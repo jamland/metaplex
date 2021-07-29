@@ -142,6 +142,9 @@ export const HomeView = () => {
 
   return (
     <Layout style={{ margin: 0, marginTop: 30, alignItems: 'center' }}>
+      {
+        <h1 style={{fontSize: '4em', marginTop: '2em'}}>Coomin Soon!</h1>
+      }
       {!store && !isLoading && (
         <>
           {!CURRENT_STORE && (
