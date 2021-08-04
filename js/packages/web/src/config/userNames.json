@@ -1,28 +1,4 @@
 {
-  "E8Wt2N8D9PJan7cAshjJ15WHeiwqQTAf2fzX4rfA5qnQ": {
-    "name": "Ukratrax",
-    "image": "img/utx-image.png",
-    "description": "UTX Store Admin",
-    "background": "this account have issues to be store owner"
-  },
-  "DAAow5qtyaXHRopaLp6oKrK8v5UsGGxZ61PRenfuDuPf": {
-    "name": "Ukratrax",
-    "image": "img/utx-image.png",
-    "description": "UTX Store Admin",
-    "background": "this account have issues to be store owner"
-  },
-  "B66qYxq1YnfgUwqDYE9SbAfHYY54uBC4pRTVpHekQTXX": {
-    "name": "⚡️ 801",
-    "image": "img/801.png",
-    "description": "Musical Artist",
-    "background": ""
-  },
-  "82ozNzqCdX7kGjv5KjCHu4oDCPqo3zrfnt5ddhdNJLBC": {
-    "name": "richardbq",
-    "image": "img/richard.webp",
-    "description": "Visual Artist",
-    "background": ""
-  },
   "EDshWM3jBy2YUszMiFLAFLx3WkbtqR9An7JZzvg22R1P": {
     "name": "Deployer Admin",
     "image": "https://pbs.twimg.com/profile_images/1393399819213983746/2a8l5muc_400x400.png",
@@ -52,5 +28,6 @@
     "image": "https://pbs.twimg.com/profile_images/1299400345144049665/sPxnVXa7_400x400.jpg",
     "description": "Account used by Solana to mint official NFTs.",
     "background": ""
+
   }
 }
