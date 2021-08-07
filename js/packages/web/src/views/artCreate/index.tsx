@@ -65,7 +65,7 @@ export const ArtCreateView = () => {
     name: '',
     symbol: '',
     description: '',
-    external_url: '',
+    external_url: 'https://www.ukratrax.store',
     image: '',
     animation_url: undefined,
     attributes: undefined,
