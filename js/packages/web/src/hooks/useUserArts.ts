@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import {
   MasterEditionV1,
   MetadataKey,
@@ -18,6 +19,23 @@ import { useMeta } from './../contexts';
 export const useUserArts = (): SafetyDepositDraft[] => {
   const { metadata, masterEditions, editions } = useMeta();
   const { userAccounts } = useUserAccounts();
+  console.log('rerender....');
+
+  useEffect(() => {
+    console.log('metadata changed...');
+  }, [metadata]);
+
+  useEffect(() => {
+    console.log('masterEditions changed...');
+  }, [masterEditions]);
+
+  useEffect(() => {
+    console.log('editions changed...');
+  }, [editions]);
+
+  useEffect(() => {
+    console.log('userAccounts changed...');
+  }, [userAccounts]);
 
   const accountByMint = userAccounts.reduce((prev, acc) => {
     prev.set(acc.info.mint.toBase58(), acc);
