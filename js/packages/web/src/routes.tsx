@@ -16,8 +16,6 @@ import {
 import { AdminView } from './views/admin';
 import { BillingView } from './views/auction/billing';
 
-console.log('version 1.0');
-
 export function Routes() {
 
   return (
