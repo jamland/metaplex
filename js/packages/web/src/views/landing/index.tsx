@@ -48,7 +48,6 @@ export const LandingView = () => {
                   url={heroImageCenter}
                   className="artwork-image"
                   style={{ width: '100%' }}
-                  withGui={true}
                 />
               </ErrorBoundary>
             </Col>
