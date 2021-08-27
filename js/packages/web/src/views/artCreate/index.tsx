@@ -75,6 +75,10 @@ export const ArtCreateView = () => {
       files: [],
       category: MetadataCategory.Image,
     },
+    collection: {
+      name: 'MRAK [8MXX]',
+      family: '⚡️801',
+    },
   });
 
   const gotoStep = useCallback(
@@ -102,6 +106,7 @@ export const ArtCreateView = () => {
       animation_url: attributes.animation_url,
       attributes: attributes.attributes,
       external_url: attributes.external_url,
+      collection: attributes.collection,
       properties: {
         files: attributes.properties.files,
         category: attributes.properties?.category,

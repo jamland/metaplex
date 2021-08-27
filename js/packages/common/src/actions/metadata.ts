@@ -92,6 +92,11 @@ export interface IMetadataExtension {
       shares: number;
     }[];
   };
+
+  collection: {
+    name: string;
+    family: string;
+  };
 }
 
 export class MasterEditionV1 {

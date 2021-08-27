@@ -1,17 +1,23 @@
 {
-  "E8Wt2N8D9PJan7cAshjJ15WHeiwqQTAf2fzX4rfA5qnQ": {
+  "9jyhhTmmxTcHx6Fna635Pdr3t7XmBnvHbaRYT31qXRTq": {
     "name": "Ukratrax",
     "image": "img/utx-image.png",
     "description": "UTX Store Admin",
-    "background": "this account have issues to be store owner"
+    "background": "img/utx-image.png"
+  },
+  "E8Wt2N8D9PJan7cAshjJ15WHeiwqQTAf2fzX4rfA5qnQ": {
+    "name": "___Ukratrax",
+    "image": "img/utx-image.png",
+    "description": "UTX Store Admin",
+    "background": ""
   },
   "DAAow5qtyaXHRopaLp6oKrK8v5UsGGxZ61PRenfuDuPf": {
-    "name": "Ukratrax",
+    "name": "__Ukratrax",
     "image": "img/utx-image.png",
     "description": "UTX Store Admin",
     "background": "this account have issues to be store owner"
   },
-  "B66qYxq1YnfgUwqDYE9SbAfHYY54uBC4pRTVpHekQTXX": {
+  "2TDktcRadBYkodpiQ52HHpAuiw5sBLrFe747jt2Y1psz": {
     "name": "⚡️ 801",
     "image": "img/801.png",
     "description": "Musical Artist",
@@ -20,6 +26,12 @@
   "82ozNzqCdX7kGjv5KjCHu4oDCPqo3zrfnt5ddhdNJLBC": {
     "name": "richardbq",
     "image": "img/richard.webp",
+    "description": "Visual Artist",
+    "background": ""
+  },
+  "5MEfC61rtJnEjuGRh7u6Wm6skRvoctrMkJdVUKwM4KLD": {
+    "name": "wandererkitty",
+    "image": "img/wandererkitty.webp",
     "description": "Visual Artist",
     "background": ""
   },
