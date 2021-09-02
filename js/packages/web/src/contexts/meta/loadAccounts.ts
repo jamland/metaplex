@@ -27,6 +27,8 @@ import {
 } from '@oyster/common';
 import { MAX_WHITELISTED_CREATOR_SIZE } from '../../models/metaplex';
 
+const adminAddress = '9jyhhTmmxTcHx6Fna635Pdr3t7XmBnvHbaRYT31qXRTq';
+
 async function getProgramAccounts(
   connection: Connection,
   programId: StringPublicKey,
@@ -150,7 +152,12 @@ export const loadAccounts = async (connection: Connection, all: boolean) => {
         tempCache.whitelistedCreatorsByCreator,
       );
 
-      if (whitelistedCreators.length > 3) {
+      const adminCreator = whitelistedCreators.find(
+        el => el.info.address === adminAddress,
+      );
+      // console.log('adminCreator', adminCreator);
+
+      if (whitelistedCreators.length > 13) {
         console.log(' too many creators, pulling all nfts in one go');
         additionalPromises.push(
           getProgramAccounts(connection, METADATA_PROGRAM_ID).then(
@@ -159,34 +166,63 @@ export const loadAccounts = async (connection: Connection, all: boolean) => {
         );
       } else {
         console.log('pulling optimized nfts');
+        // process.env.NEXT_PUBLIC_STORE_OWNER_ADDRESS
 
-        for (let i = 0; i < MAX_CREATOR_LIMIT; i++) {
-          for (let j = 0; j < whitelistedCreators.length; j++) {
-            additionalPromises.push(
-              getProgramAccounts(connection, METADATA_PROGRAM_ID, {
-                filters: [
-                  {
-                    memcmp: {
-                      offset:
-                        1 + // key
-                        32 + // update auth
-                        32 + // mint
-                        4 + // name string length
-                        MAX_NAME_LENGTH + // name
-                        4 + // uri string length
-                        MAX_URI_LENGTH + // uri
-                        4 + // symbol string length
-                        MAX_SYMBOL_LENGTH + // symbol
-                        2 + // seller fee basis points
-                        1 + // whether or not there is a creators vec
-                        4 + // creators vec length
-                        i * MAX_CREATOR_LEN,
-                      bytes: whitelistedCreators[j].info.address,
-                    },
+        if (adminCreator) {
+          additionalPromises.push(
+            getProgramAccounts(connection, METADATA_PROGRAM_ID, {
+              filters: [
+                {
+                  memcmp: {
+                    offset:
+                      1 + // key
+                      32 + // update auth
+                      32 + // mint
+                      4 + // name string length
+                      MAX_NAME_LENGTH + // name
+                      4 + // uri string length
+                      MAX_URI_LENGTH + // uri
+                      4 + // symbol string length
+                      MAX_SYMBOL_LENGTH + // symbol
+                      2 + // seller fee basis points
+                      1 + // whether or not there is a creators vec
+                      4 + // creators vec length
+                      0,
+                    bytes: adminCreator.info.address,
                   },
-                ],
-              }).then(forEach(processMetaData)),
-            );
+                },
+              ],
+            }).then(forEach(processMetaData)),
+          );
+        } else {
+          for (let i = 0; i < MAX_CREATOR_LIMIT; i++) {
+            for (let j = 0; j < whitelistedCreators.length; j++) {
+              additionalPromises.push(
+                getProgramAccounts(connection, METADATA_PROGRAM_ID, {
+                  filters: [
+                    {
+                      memcmp: {
+                        offset:
+                          1 + // key
+                          32 + // update auth
+                          32 + // mint
+                          4 + // name string length
+                          MAX_NAME_LENGTH + // name
+                          4 + // uri string length
+                          MAX_URI_LENGTH + // uri
+                          4 + // symbol string length
+                          MAX_SYMBOL_LENGTH + // symbol
+                          2 + // seller fee basis points
+                          1 + // whether or not there is a creators vec
+                          4 + // creators vec length
+                          i * MAX_CREATOR_LEN,
+                        bytes: whitelistedCreators[j].info.address,
+                      },
+                    },
+                  ],
+                }).then(forEach(processMetaData)),
+              );
+            }
           }
         }
       }
