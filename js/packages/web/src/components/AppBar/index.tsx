@@ -50,7 +50,7 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
       display: "flex",
       flexDirection: vertical ? "column" : "row",
     }}>
-      <Link to={`/auctions`}>
+      <Link to={`/`}>
         <Button className="app-btn">Explore</Button>
       </Link>
       <Link to={`/artworks`}>
@@ -61,7 +61,7 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
       <Link to={`/artists`}>
         <Button className="app-btn">Creators</Button>
       </Link>
-      <Link to={`/`}>
+      <Link to={`/info`}>
         <Button className="app-btn">Info</Button>
       </Link>
     </div>
@@ -79,7 +79,7 @@ const MetaplexMenu = () => {
       trigger={['click']}
       overlay={<Menu>
         <Menu.Item key="auctions">
-          <Link to={`/auctions`}>
+          <Link to={`/`}>
             <Button className="app-btn">Explore</Button>
           </Link>
         </Menu.Item>
@@ -94,7 +94,7 @@ const MetaplexMenu = () => {
           </Link>
         </Menu.Item>
         <Menu.Item key="home">
-          <Link to={`/`}>
+          <Link to={`/info`}>
             <Button className="app-btn">Info</Button>
           </Link>
         </Menu.Item>

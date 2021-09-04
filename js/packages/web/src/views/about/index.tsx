@@ -16,7 +16,7 @@ export const AboutView = () => {
                   👕 🧢 😵‍💫 👾
                 </span>{' '}
                 <br />
-                <span>Твои виртуальные вещи от музыкантов и артистов</span>
+                <span>Your digital NFT things</span>
               </h1>
             </Col>
             <Col span={16}>
@@ -25,7 +25,7 @@ export const AboutView = () => {
               <h2>🪂 Free Airdrops</h2>
 
               <p>
-                👉 Подписывайтесь в{' '}
+                👉 Follow us on{' '}
                 <a href="https://www.instagram.com/ukratrax" target="_blank">
                   Insta
                 </a>
@@ -37,14 +37,19 @@ export const AboutView = () => {
                 <a href="https://www.tiktok.com/@ukratrax" target="_blank">
                   TikTok
                 </a>
-                , чтоб узнать условия участия и новости о новых айтемах.
               </p>
               <p>
-                Ukratrax - это аукцион NFT мерч айтемов от музыкантов и
-                артистов. Артисты создают виртуальные вещи в лимитированной
-                коллекции. Получай эти айтемы эирдропами, покупай-продавай,
-                обменивай на платформе Ukratrax Store. 🎉 Первый пак с 20 💎
-                бесплатными вещами уже в течении месяца!
+                🎉 We have released first pack of 28 unique items from ⚡️801
+                musician. Follow him on{' '}
+                <a href="https://soundcloud.com/phunky801" target="_blank">
+                  souncloud
+                </a>
+              </p>
+              <p>
+                🎉 Next pack will be released in September and will be from visual artist Denys Metelin. Follow him on{' '}
+                <a href="https://www.instagram.com/metelin_denys/" target="_blank">
+                  instagram
+                </a>
               </p>
             </Col>
           </Row>

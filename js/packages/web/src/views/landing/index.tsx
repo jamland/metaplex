@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {ErrorBoundary} from 'react-error-boundary';
+import { ErrorBoundary } from 'react-error-boundary';
 import { Layout, Row, Col, Button, Divider } from 'antd';
 
 import { MeshViewer } from '../../components/MeshViewer';
@@ -23,17 +23,19 @@ export const LandingView = () => {
               <br />
               <br />
               <br />
-              <h3>Твои виртуальные NFT вещи</h3>
-              <p>
-                Покупайте и продавайте NFT айтемы на аукционе за криптовалюту.
+              <h3>digital NFT things</h3>
+              <p style={{ textAlign: 'left' }}>
+                Limited unique items you can keep until the Internet works (or
+                until you decide to get rid of them).
               </p>
-              <Link to="/auctions">
-                <Button type="primary" style={{marginBottom: '1em'}}>
-                  Аукцион
+
+              <Link to="/">
+                <Button type="primary" style={{ marginBottom: '1em' }}>
+                  Auction
                 </Button>{' '}
               </Link>
               <Link to="/about">
-                <Button>Детали Проекта</Button>
+                <Button>Project Details</Button>
               </Link>
             </Col>
 
@@ -53,15 +55,6 @@ export const LandingView = () => {
             </Col>
           </Row>
 
-          <Row className="description-section">
-            <Col xs={24} md={16}>
-              <p style={{ textAlign: 'left' }}>
-                Уникальные лимитированные айтемы, которые будут у вас до тех пор
-                пока существует интернет или вы не решите от них избавится.
-              </p>
-            </Col>
-          </Row>
-
           <Divider />
 
           <Row className="with-radial-bg">
@@ -75,22 +68,21 @@ export const LandingView = () => {
               </h1>
               <h3 className="section-subtitle">by UKRATRAX</h3>
               <p>
-                Ukratrax представляет пространство, где каждый может найти мерч,
-                созданный музыкантами и артистами. Собирайте, покупайте и
-                продавайте NFT айтемы на аукционе с другими юзерами. NFT мерч
-                айтемы создаются в лимитированном количестве и хранятся на вашем
-                кошельке (в блокчейне Solana).
+                Ukratrax presents you a space where eveyone can find merch
+                created by musicians and artists. Collect, buy and sell NFT
+                items on action with other users. NFT merch items are made in
+                limited edition and can be kept on your wallet (in solana
+                blockchain)
               </p>
               <p>
-                Подписывайтесь в Инсте и ТикТоке, чтобы узнать о будущих
-                эйр-дропах.
+                Follow us on Twitter and Insta to know about further airdrops!
               </p>
 
               <br />
-              <Link to="/artists">
+              <Link to="/artworks">
                 <Button type="primary" size="large">
                   {' '}
-                  Смотрите Коллекции →
+                  Collections →
                 </Button>
               </Link>
               <br />
@@ -108,11 +100,11 @@ export const LandingView = () => {
 };
 
 interface ErrorProps {
-  error: Error,
-  resetErrorBoundary: () => void
+  error: Error;
+  resetErrorBoundary: () => void;
 }
 
-function ErrorFallback({error, resetErrorBoundary}: ErrorProps) {
+function ErrorFallback({ error, resetErrorBoundary }: ErrorProps) {
   return (
     <div role="alert">
       <p>Something went wrong:</p>
@@ -120,5 +112,5 @@ function ErrorFallback({error, resetErrorBoundary}: ErrorProps) {
       <br />
       <Button onClick={resetErrorBoundary}>Try again</Button>
     </div>
-  )
+  );
 }

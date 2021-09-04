@@ -17,7 +17,6 @@ import { AdminView } from './views/admin';
 import { BillingView } from './views/auction/billing';
 
 export function Routes() {
-
   return (
     <>
       <HashRouter basename={'/'}>
@@ -57,9 +56,9 @@ export function Routes() {
               path="/auction/:id/billing"
               component={() => <BillingView />}
             />
-            <Route path="/auctions" component={() => <HomeView />} />
-            <Route path="/" component={() => <LandingView />} />
-            <Route path="/about" component={() => <AboutView />} />
+            <Route exact path="/info" component={() => <LandingView />} />
+            <Route exact path="/about" component={() => <AboutView />} />
+            <Route path="/" component={() => <HomeView />} />
           </Switch>
         </Providers>
       </HashRouter>
