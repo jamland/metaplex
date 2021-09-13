@@ -13,7 +13,7 @@ https://user-images.githubusercontent.com/81876372/133098938-dc2c91a6-1280-4ee1-
   "symbol": "",
   "description": "Celebratory Solflare NFT for the Solflare X launch",
   "seller_fee_basis_points": 0,
-  "image": "https://www.arweave.net/abcd5678?ext=png",
+  "image": "image.png",
   "animation_url": "https://www.arweave.net/efgh1234?ext=mp4",
   "external_url": "https://solflare.com",
   "attributes": [
@@ -37,20 +37,11 @@ https://user-images.githubusercontent.com/81876372/133098938-dc2c91a6-1280-4ee1-
   "properties": {
     "files": [
       {
-        "uri": "https://www.arweave.net/abcd5678?ext=png",
+        "uri": "image.png",
         "type": "image/png"
       },
-      {
-        "uri": "https://watch.videodelivery.net/9876jkl",
-        "type": "unknown",
-        "cdn": true
-      },
-      {
-        "uri": "https://www.arweave.net/efgh1234?ext=mp4",
-        "type": "video/mp4"
-      }
     ],
-    "category": "video",
+    "category": "image",
     "creators": [
       {
         "address": "creator_sol_address",
