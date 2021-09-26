@@ -1,38 +1,42 @@
 {
-  "name": "Solflare X NFT #0000",
-  "symbol": "",
-  "description": "Hello World! 🌏",
-  "seller_fee_basis_points": 500,
-  "image": "image.png",
-  "animation_url": "",
-  "external_url": "",
-  "attributes": [
-    {
-      "trait_type": "web",
-      "value": "yes"
+    "name": "SOLDIER #0000",
+    "symbol": "",
+    "description": "You hold in your possession an awesome art.",
+    "seller_fee_basis_points": 500,
+    "image": "image.png",
+    "external_url": "https://solflare.com",
+    "animation_url": "",
+    "collection": {
+        "name": "Battalion of 9999",
+        "family": "Solarmy"
     },
-    {
-      "trait_type": "mobile",
-      "value": "yes"
-    }
-  ],
-  "collection": {
-    "name": "Solflare X NFT",
-    "family": "Solflare"
-  },
-  "properties": {
-    "files": [
-      {
-        "uri": "image.png",
-        "type": "image/png"
-      }
-    ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "CBBUMHRmbVUck99mTCip5sHP16kzGj3QTYB8K3XxwmQx",
-        "share": 100
-      }
+    "properties": {
+        "files": [
+            {
+                "uri": "image.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "7S5G4WUJX49gDTt2RjsodoDTNSDt63fdHkvx2geF1VBw",
+                "share": 100
+            }
+        ]
+    },
+    "attributes": [
+        {
+            "trait_type": "Background Color",
+            "value": "palegreen"
+        },
+        {
+            "trait_type": "Head Color",
+            "value": "lightblue"
+        },
+        {
+            "trait_type": "Neck Color",
+            "value": "lightslategray"
+        }
     ]
-  }
 }
