@@ -79,7 +79,7 @@ export const ArtCreateView = () => {
       name: 'MRAK [8MXX]',
       family: '⚡️801',
     },
-  });
+  } as any);
 
   const gotoStep = useCallback(
     (_step: number) => {
@@ -106,12 +106,12 @@ export const ArtCreateView = () => {
       animation_url: attributes.animation_url,
       attributes: attributes.attributes,
       external_url: attributes.external_url,
-      collection: attributes.collection,
+      // collection: attributes.collection,
       properties: {
         files: attributes.properties.files,
         category: attributes.properties?.category,
       },
-    };
+    } as any;
     setStepsVisible(false);
     const inte = setInterval(
       () => setProgress(prog => Math.min(prog + 1, 99)),

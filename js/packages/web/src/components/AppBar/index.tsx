@@ -6,51 +6,56 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { Notifications } from '../Notifications';
 import useWindowDimensions from '../../utils/layout';
 import { MenuOutlined } from '@ant-design/icons';
-import { useMeta } from '../../contexts';
+// import { useMeta } from '../../contexts';
 
-const UserActions = () => {
-  const { publicKey } = useWallet();
-  const { whitelistedCreatorsByCreator, store } = useMeta();
-  const pubkey = publicKey?.toBase58() || '';
+// const UserActions = () => {
+//   const { publicKey } = useWallet();
+//   const { whitelistedCreatorsByCreator, store } = useMeta();
+//   const pubkey = publicKey?.toBase58() || '';
 
-  const canCreate = useMemo(() => {
-    return (
-      store?.info?.public ||
-      whitelistedCreatorsByCreator[pubkey]?.info?.activated
-    );
-  }, [pubkey, whitelistedCreatorsByCreator, store]);
+//   const canCreate = useMemo(() => {
+//     return (
+//       store?.info?.public ||
+//       whitelistedCreatorsByCreator[pubkey]?.info?.activated
+//     );
+//   }, [pubkey, whitelistedCreatorsByCreator, store]);
 
-  return (
-    <>
-      {store && (
-        <>
-          {/* <Link to={`#`}>
-            <Button className="app-btn">Bids</Button>
-          </Link> */}
-          {canCreate ? (
-            <Link to={`/art/create`}>
-              <Button className="app-btn">Create</Button>
-            </Link>
-          ) : null}
-          <Link to={`/auction/create/0`}>
-            <Button className="connector" type="primary">
-              Sell
-            </Button>
-          </Link>
-        </>
-      )}
-    </>
-  );
-};
+//   return (
+//     <>
+//       {store && (
+//         <>
+//           {/* <Link to={`#`}>
+//             <Button className="app-btn">Bids</Button>
+//           </Link> */}
+//           {canCreate ? (
+//             <Link to={`/art/create`}>
+//               <Button className="app-btn">Create</Button>
+//             </Link>
+//           ) : null}
+//           <Link to={`/auction/create/0`}>
+//             <Button className="connector" type="primary">
+//               Sell
+//             </Button>
+//           </Link>
+//         </>
+//       )}
+//     </>
+//   );
+// };
 
 const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
-  const { connected } = useWallet();
+  // const { connected } = useWallet();
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: vertical ? "column" : "row",
-    }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: vertical ? 'column' : 'row',
+      }}
+    >
       <Link to={`/`}>
+        <Button className="app-btn">Home</Button>
+      </Link>
+      {/* <Link to={`/`}>
         <Button className="app-btn">Explore</Button>
       </Link>
       <Link to={`/artworks`}>
@@ -60,25 +65,30 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
       </Link>
       <Link to={`/artists`}>
         <Button className="app-btn">Creators</Button>
-      </Link>
-      <Link to={`/info`}>
-        <Button className="app-btn">Info</Button>
-      </Link>
+      </Link> */}
     </div>
   );
 };
 
 const MetaplexMenu = () => {
   const { width } = useWindowDimensions();
-  const { connected } = useWallet();
+  // const { connected } = useWallet();
 
-  if (width < 768) return <>
-    <Dropdown
-      arrow
-      placement="bottomLeft"
-      trigger={['click']}
-      overlay={<Menu>
-        <Menu.Item key="auctions">
+  if (width < 768)
+    return (
+      <>
+        <Dropdown
+          arrow
+          placement="bottomLeft"
+          trigger={['click']}
+          overlay={
+            <Menu>
+              <Menu.Item key="home">
+                <Link to={`/`}>
+                  <Button className="app-btn">Home</Button>
+                </Link>
+              </Menu.Item>
+              {/* <Menu.Item key="auctions">
           <Link to={`/`}>
             <Button className="app-btn">Explore</Button>
           </Link>
@@ -92,43 +102,52 @@ const MetaplexMenu = () => {
           <Link to={`/artists`}>
             <Button className="app-btn">Creators</Button>
           </Link>
-        </Menu.Item>
-        <Menu.Item key="home">
-          <Link to={`/info`}>
-            <Button className="app-btn">Info</Button>
-          </Link>
-        </Menu.Item>
-      </Menu>}
-    >
-      <MenuOutlined style={{ fontSize: "1.4rem" }} />
-    </Dropdown>
-  </>
+        </Menu.Item> */}
+            </Menu>
+          }
+        >
+          <MenuOutlined style={{ fontSize: '1.4rem' }} />
+        </Dropdown>
+      </>
+    );
 
   return <DefaultActions />;
 };
 
 export const AppBar = () => {
-  const { connected } = useWallet();
+  // const { connected } = useWallet();
 
   return (
-    <>
+    <div>
       <div className="app-left app-bar-box">
         {window.location.hash !== '#/analytics' && <Notifications />}
         <div className="divider" />
         <MetaplexMenu />
       </div>
-      {connected ? (
-        <div className="app-right app-bar-box">
-          <UserActions />
-          <CurrentUserBadge
-            showBalance={false}
-            showAddress={false}
-            iconSize={24}
-          />
-        </div>
-      ) : (
-        <ConnectButton type="primary" allowWalletChange />
-      )}
-    </>
+    </div>
   );
+
+  // return (
+  //   <>
+  //     <div className="app-left app-bar-box">
+  //       {window.location.hash !== '#/analytics' && <Notifications />}
+  //       <div className="divider" />
+  //       <MetaplexMenu />
+  //     </div>
+  //     <div>
+  //       {connected ? (
+  //         <div className="app-right app-bar-box">
+  //           {/* <UserActions /> */}
+  //           <CurrentUserBadge
+  //             showBalance={false}
+  //             showAddress={false}
+  //             iconSize={24}
+  //           />
+  //         </div>
+  //       ) : (
+  //         <ConnectButton type="primary" allowWalletChange />
+  //       )}
+  //     </div>
+  //   </>
+  // );
 };

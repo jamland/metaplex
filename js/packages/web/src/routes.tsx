@@ -2,19 +2,19 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import { Providers } from './providers';
 import {
   AnalyticsView,
-  ArtCreateView,
-  ArtistsView,
-  ArtistView,
-  ArtView,
-  ArtworksView,
-  AuctionCreateView,
-  AuctionView,
-  HomeView,
+  // ArtCreateView,
+  // ArtistsView,
+  // ArtistView,
+  // ArtView,
+  // ArtworksView,
+  // AuctionCreateView,
+  // AuctionView,
+  // HomeView,
   LandingView,
   AboutView,
 } from './views';
-import { AdminView } from './views/admin';
-import { BillingView } from './views/auction/billing';
+// import { AdminView } from './views/admin';
+// import { BillingView } from './views/auction/billing';
 
 export function Routes() {
   return (
@@ -22,23 +22,23 @@ export function Routes() {
       <HashRouter basename={'/'}>
         <Providers>
           <Switch>
-            <Route exact path="/admin" component={() => <AdminView />} />
-            <Route
+            {/* <Route exact path="/admin" component={() => <AdminView />} /> */}
+            {/* <Route
               exact
               path="/analytics"
               component={() => <AnalyticsView />}
-            />
-            <Route
+            /> */}
+            {/* <Route
               exact
               path="/art/create/:step_param?"
               component={() => <ArtCreateView />}
-            />
-            <Route
+            /> */}
+            {/* <Route
               exact
               path="/artworks/:id?"
               component={() => <ArtworksView />}
-            />
-            <Route exact path="/art/:id" component={() => <ArtView />} />
+            /> */}
+            {/* <Route exact path="/art/:id" component={() => <ArtView />} />
             <Route exact path="/artists/:id" component={() => <ArtistView />} />
             <Route exact path="/artists" component={() => <ArtistsView />} />
             <Route
@@ -55,10 +55,10 @@ export function Routes() {
               exact
               path="/auction/:id/billing"
               component={() => <BillingView />}
-            />
-            <Route exact path="/info" component={() => <LandingView />} />
+            /> */}
+            <Route exact path="/" component={() => <LandingView />} />
             <Route exact path="/about" component={() => <AboutView />} />
-            <Route path="/" component={() => <HomeView />} />
+            {/* <Route path="/" component={() => <HomeView />} /> */}
           </Switch>
         </Providers>
       </HashRouter>

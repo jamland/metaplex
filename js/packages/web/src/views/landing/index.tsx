@@ -29,11 +29,11 @@ export const LandingView = () => {
                 until you decide to get rid of them).
               </p>
 
-              <Link to="/">
+              <a href="https://digitaleyes.market/collections/UTX%20MRAK" target="_blank">
                 <Button type="primary" style={{ marginBottom: '1em' }}>
-                  Auction
+                  Second Market
                 </Button>{' '}
-              </Link>
+              </a>
               <Link to="/about">
                 <Button>Project Details</Button>
               </Link>
@@ -79,12 +79,12 @@ export const LandingView = () => {
               </p>
 
               <br />
-              <Link to="/artworks">
+              <a href="https://twitter.com/ukratrax" target="_blank">
                 <Button type="primary" size="large">
                   {' '}
                   Collections →
                 </Button>
-              </Link>
+              </a>
               <br />
               <br />
               <br />

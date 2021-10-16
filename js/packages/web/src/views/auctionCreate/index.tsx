@@ -379,7 +379,7 @@ export const AuctionCreateView = () => {
       console.log('Tiered settings', tieredAttributes.items);
     }
 
-    const auctionSettings: IPartialCreateAuctionArgs = {
+    const auctionSettings: any = {
       winners: winnerLimit,
       endAuctionAt: new BN(
         (attributes.auctionDuration || 0) *
